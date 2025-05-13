@@ -23,6 +23,16 @@ import (
 var errorHandlerMu sync.Mutex
 var errorHandlerIndex int
 
+type ErrorCategory int
+
+const (
+	CE_None    ErrorCategory = 0
+	CE_Debug   ErrorCategory = 1
+	CE_Warning ErrorCategory = 2
+	CE_Failure ErrorCategory = 3
+	CE_Fatal   ErrorCategory = 4
+)
+
 // ErrorHandler is a function that can be used to override godal's default behavior
 // of treating all messages with severity >= CE_Warning as errors. When an ErrorHandler
 // is passed as an option to a godal function, all logs/errors emitted by gdal will be passed
