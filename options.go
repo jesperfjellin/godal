@@ -16,6 +16,27 @@ package godal
 
 import "sort"
 
+type Geometry struct{}
+
+type FieldDefinition struct{}
+
+type SpatialRef struct{}
+
+type Band struct{}
+
+type ResamplingAlg string
+
+const (
+	NearestResampling     ResamplingAlg = "NEAREST"
+	BilinearResampling    ResamplingAlg = "BILINEAR"
+	CubicResampling       ResamplingAlg = "CUBIC"
+	CubicSplineResampling ResamplingAlg = "CUBICSPLINE"
+	LanczosResampling     ResamplingAlg = "LANCZOS"
+	AverageResampling     ResamplingAlg = "AVERAGE"
+	ModeResampling        ResamplingAlg = "MODE"
+	// Add more as needed
+)
+
 // GetGeoTransformOption is an option that can be passed to Dataset.GeoTransform()
 //
 // Available GetGeoTransformOptions are:
