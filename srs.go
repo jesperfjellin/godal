@@ -104,3 +104,12 @@ func reprojectBounds(bnds [4]float64, src, dst *SpatialRef) ([4]float64, error) 
 	}
 	return ret, nil
 }
+
+type Transform struct{}
+
+func (t *Transform) Close() error                            { return nil }
+func (t *Transform) TransformEx(x, y, z, t2 []float64) error { return nil }
+
+func NewTransform(src, dst *SpatialRef) (*Transform, error) {
+	return &Transform{}, nil
+}
